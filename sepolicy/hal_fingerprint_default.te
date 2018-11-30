@@ -23,4 +23,12 @@ dontaudit hal_fingerprint_default sysfs_devfreq:dir search;
 dontaudit hal_fingerprint_default sysfs_graphics:dir search;
 dontaudit hal_fingerprint_default sysfs_leds:dir search;
 
+dontaudit hal_fingerprint_default storage_file:lnk_file read;
+dontaudit hal_fingerprint_default mnt_user_file:dir search;
+dontaudit hal_fingerprint_default mnt_user_file:lnk_file read;
+
+dontaudit hal_fingerprint_default sdcardfs:dir search;
+
+dontaudit hal_fingerprint_default media_rw_data_file:dir { search read open };
+
 set_prop(hal_fingerprint_default, fingerprint_prop);
