@@ -1,0 +1,2 @@
+allow ueventd sysfs_sts:file relabelto;
+allow ueventd sysfs:filesystem associate;

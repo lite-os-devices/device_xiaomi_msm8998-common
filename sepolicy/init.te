@@ -1,6 +1,12 @@
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
-allow init sysfs_devices_system_cpu:file rw_file_perms;
-allow init sysfs_kgsl:file rw_file_perms;
 allow init sysfs_kgsl:lnk_file read;
-allow init sysfs:file rw_file_perms;
-allow init sysfs_cpu_boost:file rw_file_perms;
+
+allow init {
+  sysfs_devices_system_cpu
+#  sysfs_kgsl
+  sysfs
+  sysfs_cpu_boost
+  proc
+}:file rw_file_perms;
+
+allow init sysfs_kgsl:file { setattr rw_file_perms };
