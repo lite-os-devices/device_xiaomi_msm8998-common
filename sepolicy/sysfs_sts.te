@@ -1,0 +1,1 @@
+allow sysfs_sts sysfs:filesystem associate;
