@@ -21,3 +21,4 @@ allow readmac sysfs_data:file r_file_perms;
 allow readmac sysfs:file r_file_perms;
 
 allow readmac mnt_vendor_file:file { read open getattr };
+allow readmac mnt_vendor_file:dir search;
