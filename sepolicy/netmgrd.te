@@ -1,0 +1,3 @@
+allow netmgrd property_socket:sock_file write;
+allow netmgrd init:unix_stream_socket connectto;
+allow netmgrd vendor_xlat_prop:property_service set;
