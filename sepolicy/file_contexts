@@ -1,3 +1,6 @@
+# CNE
+/data/connectivity(/.*)?                                      u:object_r:cnd_data_file:s0
+
 # Fingerprint
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_msm8998 u:object_r:hal_fingerprint_default_exec:s0
 /dev/goodix_fp                                                u:object_r:fingerprint_device:s0
@@ -20,6 +23,7 @@
 # Power HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.2-service.xiaomi_msm8998-libperfmgr u:object_r:hal_power_default_exec:s0
 /sys/devices/soc/c179000\.i2c/i2c-5/5-[0-9a-f]+/input/input[0-9]+/double_tap_enable u:object_r:sysfs_touchpanel:s0
+/sys/devices/virtual/graphics/fb0/idle_state                  u:object_r:sysfs_graphics:s0
 
 # Readmac
 /(vendor|system/vendor)/bin/readmac                           u:object_r:readmac_exec:s0
@@ -41,8 +45,16 @@
 
 # Vibrator
 /sys/devices/virtual/timed_output/vibrator/(/.*)?             u:object_r:sysfs_vibrator:s0
-
 # Vibrator HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.1-service\.sagit     u:object_r:hal_vibrator_default_exec:s0
+
+/vendor/bin/hw/android\.hardware\.health@2\.0-service\.xiaomi_msm8998              u:object_r:hal_health_default_exec:s0
+
+/persist/battery(/.*)?    u:object_r:persist_battery_file:s0
+
+/sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-02/800f000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/usb(/.*)?        u:object_r:sysfs_usb_supply:s0
+/sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-02/800f000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/battery(/.*)?    u:object_r:sysfs_battery_supply:s0
+/sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-02/800f000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/power_supply/dc(/.*)?         u:object_r:sysfs_battery_supply:s0
+/sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-02/800f000.qcom,spmi:qcom,pmi8998@2:qpnp,fg(/.*)?                                u:object_r:sysfs_battery_supply:s0
 
 /system/bin/move_widevine_data\.sh              u:object_r:move-widevine-data-sh_exec:s0
