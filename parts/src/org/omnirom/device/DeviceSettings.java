@@ -52,7 +52,6 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String SPECTRUM_KEY = "spectrum";
     private static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
     public static final String S2S_KEY = "sweep2sleep";
-    public static final String KEY_TAPTOWAKE_SWITCH = "taptowake";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_S2S_VIBSTRENGTH = "s2s_vib_strength";
     public static final String FILE_S2S_TYPE = "/sys/sweep2sleep/sweep2sleep";
@@ -60,7 +59,6 @@ public class DeviceSettings extends PreferenceFragment implements
     final String KEY_DEVICE_DOZE = "device_doze";
     final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
 
-    private TwoStatePreference mTapToWakeSwitch;
     private VibratorStrengthPreference mVibratorStrength;
     private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
 
@@ -102,11 +100,6 @@ public class DeviceSettings extends PreferenceFragment implements
         if (mVibratorStrength != null) {
             mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
         }
-
-        mTapToWakeSwitch = (TwoStatePreference) findPreference(KEY_TAPTOWAKE_SWITCH);
-        mTapToWakeSwitch.setEnabled(TapToWakeSwitch.isSupported());
-        mTapToWakeSwitch.setChecked(TapToWakeSwitch.isCurrentlyEnabled(this.getContext()));
-        mTapToWakeSwitch.setOnPreferenceChangeListener(new TapToWakeSwitch());
 
         mVibratorStrengthS2S = (S2SVibratorStrengthPreference) findPreference(KEY_S2S_VIBSTRENGTH);
         if (mVibratorStrengthS2S != null) {
