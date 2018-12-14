@@ -43,4 +43,6 @@
 /sys/devices/virtual/timed_output/vibrator/(/.*)?             u:object_r:sysfs_vibrator:s0
 
 # Vibrator HAL
-/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.1-service\.sagit	     u:object_r:hal_vibrator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.1-service\.sagit     u:object_r:hal_vibrator_default_exec:s0
+
+/system/bin/move_widevine_data\.sh              u:object_r:move-widevine-data-sh_exec:s0
