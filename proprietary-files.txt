@@ -533,6 +533,7 @@ vendor/lib/libqmi_csi.so|f148197841ff5de88baaba6cfbded4ac06809d4c
 vendor/lib/libqmi_encdec.so|ccb737221893472c6acb1fd45ceeb7d52393ec07
 vendor/lib/libqmi.so|8154cdf4b7eb9027185f89edf0552f40b48b69e4
 vendor/lib/libqmiservices.so|84938d883e51fac9f0187e35e805122fc590c92b
+vendor/lib/libsmemlog.so|8f0e2c95280922335bfa38117253dd8d6381dfeb
 vendor/lib64/libdiag.so|f76dc4e48c5b4cadd2d32ab14f09051d13c2813a
 vendor/lib64/libdsutils.so|187a8ca166a2c8c37643dc44bad4125245698c51
 vendor/lib64/libidl.so|3b1a7ca55ccfe06d12d62f2c214b5ac2ee0e69da
@@ -548,6 +549,7 @@ vendor/lib64/libqmi_encdec.so|68fb631317150d66fd1a39c48f8ef9e0405bbdf2
 vendor/lib64/libqmi.so|eb00e526c8c8833bc94c908852af073eb7e06859
 vendor/lib64/libqminvapi.so|9e8158ac510685e9cb0f874deb9e654557d471b1
 vendor/lib64/libqmiservices.so|7050fc19ed35448618f783933aced7f9d4c729f9
+vendor/lib64/libsmemlog.so|6be9b6bfa31866dd3553203730f2b6af6df1a13f
 
 # RIL - from nitrogen PKQ1.181007.001
 -app/datastatusnotification/datastatusnotification.apk|d0a2b0abd425c42c9db2957508551e1e7a739215
