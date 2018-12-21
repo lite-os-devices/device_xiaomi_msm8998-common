@@ -222,6 +222,9 @@ TARGET_RIL_VARIANT := caf
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-10-01
 
+# SDClang
+SDCLANG := true
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
