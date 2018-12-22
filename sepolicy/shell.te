@@ -1,0 +1,7 @@
+allow shell adsprpcd_file:filesystem getattr;
+allow shell bt_firmware_file:dir getattr;
+allow shell bt_firmware_file:filesystem getattr;
+allow shell firmware_file:dir getattr;
+allow shell firmware_file:filesystem getattr;
+allow shell kernel:system syslog_read;
+allow shell mnt_vendor_file:dir getattr;

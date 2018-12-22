@@ -1,0 +1,2 @@
+allow surfaceflinger mediacodec:binder call;
+allow surfaceflinger device:file read;
