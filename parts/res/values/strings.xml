@@ -54,4 +54,9 @@
     <string name="hw_buttons_title">Hardware buttons</string>
     <string name="swap_hw_buttons_title">Swap buttons</string>
     <string name="swap_hw_buttons_summary">Swap the order of recents and back buttons</string>
+
+    <!-- usb fastcharge -->
+    <string name="usb_fastcharge_title">USB Fastcharge</string>
+    <string name="fastcharge_title">Enable USB Fastcharge</string>
+    <string name="fastcharge_summary">Enable to use fastcharge when connected to an computer USB 3.X</string>
 </resources>

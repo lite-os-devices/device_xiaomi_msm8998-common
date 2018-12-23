@@ -53,6 +53,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String ENABLE_HAL3_KEY = "hal3";
     private static final String SPECTRUM_KEY = "spectrum";
     private static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
+    private static final String KEY_CATEGORY_USB_FASTCHARGE = "usb_fastcharge";
     public static final String S2S_KEY = "sweep2sleep";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_S2S_VIBSTRENGTH = "s2s_vib_strength";
@@ -60,6 +61,9 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static final String BUTTONS_SWAP_KEY = "buttons_swap";
     public static final String BUTTONS_SWAP_PATH = "/proc/touchpanel/reversed_keys_enable";
+
+    public static final String USB_FASTCHARGE_KEY = "fastcharge";
+    public static final String USB_FASTCHARGE_PATH = "/sys/kernel/fast_charge/force_fast_charge";
 
     final String KEY_DEVICE_DOZE = "device_doze";
     final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
@@ -74,6 +78,8 @@ public class DeviceSettings extends PreferenceFragment implements
     private ListPreference mSPECTRUM;
     private SwitchPreference mButtonSwap;
     private PreferenceCategory mHWButtons;
+    private SwitchPreference mFastcharge;
+    private PreferenceCategory mUsbFastcharge;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -106,6 +112,15 @@ public class DeviceSettings extends PreferenceFragment implements
         } else {
             mHWButtons = (PreferenceCategory) prefSet.findPreference("hw_buttons");
             prefSet.removePreference(mHWButtons);
+        }
+
+        if (Utils.fileWritable(USB_FASTCHARGE_PATH)) {
+          mFastcharge = (SwitchPreference) findPreference(USB_FASTCHARGE_KEY);
+          mFastcharge.setChecked(Utils.getFileValueAsBoolean(USB_FASTCHARGE_PATH, false));
+          mFastcharge.setOnPreferenceChangeListener(this);
+        } else {
+          mUsbFastcharge = (PreferenceCategory) prefSet.findPreference("usb_fastcharge");
+          prefSet.removePreference(mUsbFastcharge);
         }
 
         mSPECTRUM = (ListPreference) findPreference(SPECTRUM_KEY);
@@ -147,6 +162,10 @@ public class DeviceSettings extends PreferenceFragment implements
             Utils.writeValue(BUTTONS_SWAP_PATH, value ? "1" : "0");
     }
 
+    private void setFastcharge(boolean value) {
+            Utils.writeValue(USB_FASTCHARGE_PATH, value ? "1" : "0");
+    }
+
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         return super.onPreferenceTreeClick(preference);
@@ -179,6 +198,14 @@ public class DeviceSettings extends PreferenceFragment implements
             setButtonSwap(value);
             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
             editor.putBoolean(BUTTONS_SWAP_KEY, value);
+            editor.commit();
+            return true;
+        } else if (USB_FASTCHARGE_KEY.equals(key)) {
+            value = (Boolean) newValue;
+            mFastcharge.setChecked(value);
+            setFastcharge(value);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            editor.putBoolean(USB_FASTCHARGE_KEY, value);
             editor.commit();
             return true;
         }
