@@ -19,6 +19,7 @@ package org.omnirom.device;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -135,6 +136,11 @@ public class DeviceSettings extends PreferenceFragment implements
         } else {
             SystemProperties.set(HAL3_SYSTEM_PROPERTY, "0");
         }
+    }
+
+    public static void restoreSpectrumProp(Context context) {
+        String spectrumStoredValue = PreferenceManager.getDefaultSharedPreferences(context).getString(SPECTRUM_KEY, "0");
+        SystemProperties.set(SPECTRUM_SYSTEM_PROPERTY, spectrumStoredValue);
     }
 
     private void setButtonSwap(boolean value) {
