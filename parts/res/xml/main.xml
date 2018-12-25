@@ -13,6 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:title="@string/category_system">
@@ -26,16 +27,16 @@
         android:key="display"
         android:title="@string/display_title">
         <PreferenceScreen
-                android:key="kcal"
-                android:fragment="org.omnirom.device.DisplayCalibration"
-                android:summary="@string/kcal_summary"
-                android:title="@string/kcal_title"
-                android:icon="@drawable/ic_kcal" />
+            android:key="kcal"
+            android:fragment="org.omnirom.device.DisplayCalibration"
+            android:summary="@string/kcal_summary"
+            android:title="@string/kcal_title"
+            android:icon="@drawable/ic_kcal" />
         <Preference
             android:key="device_doze"
             android:persistent="false"
             android:title="@string/device_doze_title"
-            android:icon="@drawable/ic_doze" >
+            android:icon="@drawable/ic_doze">
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="org.lineageos.settings.doze"
                 android:targetClass="org.lineageos.settings.doze.DozeSettingsActivity" />
@@ -44,7 +45,7 @@
 
     <PreferenceCategory
         android:key="spectrum_profile"
-        android:title="@string/spectrum_profile_title" >
+        android:title="@string/spectrum_profile_title">
 
         <ListPreference
             android:key="spectrum"
@@ -76,7 +77,7 @@
             android:entries="@array/s2sArray"
             android:entryValues="@array/s2sValues"
             android:icon="@drawable/ic_sts" />
-         <org.omnirom.device.S2SVibratorStrengthPreference
+        <org.omnirom.device.S2SVibratorStrengthPreference
             android:key="s2s_vib_strength"
             android:title="@string/s2s_vib_strength_title_head"
             android:icon="@drawable/ic_vibrate" />
@@ -95,7 +96,7 @@
 
     <PreferenceCategory
         android:key="usb_fastcharge"
-        android:title="@string/usb_fastcharge_title" >
+        android:title="@string/usb_fastcharge_title">
         <SwitchPreference
             android:key="fastcharge"
             android:defaultValue="false"
@@ -103,5 +104,4 @@
             android:summary="@string/fastcharge_summary"
             android:icon="@drawable/ic_usb_fastcharge" />
     </PreferenceCategory>
-
 </PreferenceScreen>
