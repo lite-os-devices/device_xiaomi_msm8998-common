@@ -45,6 +45,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import org.omnirom.device.R;
+import org.omnirom.device.utils.FileUtils;
+
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -106,21 +109,21 @@ public class DeviceSettings extends PreferenceFragment implements
         mEnableHAL3.setOnPreferenceChangeListener(this);
 
         mS2S = (ListPreference) findPreference(S2S_KEY);
-        mS2S.setValue(Utils.getFileValue(FILE_S2S_TYPE, "0"));
+        mS2S.setValue(FileUtils.getFileValue(FILE_S2S_TYPE, "0"));
         mS2S.setOnPreferenceChangeListener(this);
 
-        if (Utils.fileWritable(BUTTONS_SWAP_PATH)) {
+        if (FileUtils.isFileWritable(BUTTONS_SWAP_PATH)) {
             mButtonSwap = (SwitchPreference) findPreference(BUTTONS_SWAP_KEY);
-            mButtonSwap.setChecked(Utils.getFileValueAsBoolean(BUTTONS_SWAP_PATH, false));
+            mButtonSwap.setChecked(FileUtils.getFileValueAsBoolean(BUTTONS_SWAP_PATH, false));
             mButtonSwap.setOnPreferenceChangeListener(this);
         } else {
             mHWButtons = (PreferenceCategory) prefSet.findPreference("hw_buttons");
             prefSet.removePreference(mHWButtons);
         }
 
-        if (Utils.fileWritable(USB_FASTCHARGE_PATH)) {
+        if (FileUtils.isFileWritable(USB_FASTCHARGE_PATH)) {
           mFastcharge = (SwitchPreference) findPreference(USB_FASTCHARGE_KEY);
-          mFastcharge.setChecked(Utils.getFileValueAsBoolean(USB_FASTCHARGE_PATH, false));
+          mFastcharge.setChecked(FileUtils.getFileValueAsBoolean(USB_FASTCHARGE_PATH, false));
           mFastcharge.setOnPreferenceChangeListener(this);
         } else {
           mUsbFastcharge = (PreferenceCategory) prefSet.findPreference("usb_fastcharge");
@@ -159,11 +162,11 @@ public class DeviceSettings extends PreferenceFragment implements
     }
 
     private void setButtonSwap(boolean value) {
-        Utils.writeValue(BUTTONS_SWAP_PATH, value ? "1" : "0");
+        FileUtils.writeValue(BUTTONS_SWAP_PATH, value ? "1" : "0");
     }
 
     private void setFastcharge(boolean value) {
-        Utils.writeValue(USB_FASTCHARGE_PATH, value ? "1" : "0");
+        FileUtils.writeValue(USB_FASTCHARGE_PATH, value ? "1" : "0");
     }
 
     @Override
@@ -185,7 +188,7 @@ public class DeviceSettings extends PreferenceFragment implements
             return true;
         } else if (S2S_KEY.equals(key)) {
             strvalue = (String) newValue;
-            Utils.writeValue(FILE_S2S_TYPE, strvalue);
+            FileUtils.writeValue(FILE_S2S_TYPE, strvalue);
             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
             editor.putString(S2S_KEY, strvalue);
             editor.commit();
