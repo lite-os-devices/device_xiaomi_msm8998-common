@@ -1,0 +1,2 @@
+# GCam
+allow untrusted_app vendor_camera_prop:file r_file_perms;
