@@ -39,7 +39,6 @@ on early-init
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
-    chown system system /sys/class/timed_output/vibrator/vtg_level
 
     chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
     chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
@@ -221,10 +220,6 @@ on boot
     chmod 0660 /proc/touchpanel/double_tap_enable
     chmod 0660 /proc/touchpanel/reversed_keys_enable
     chmod 0660 /proc/touchpanel/wake_gesture
-
-    # Vibrator permissions
-    chown root system /sys/class/timed_output/vibrator/vtg_level
-    chmod 0660 /sys/class/timed_output/vibrator/vtg_level
 
     # sweep2sleep permissions
     chown system system /sys/sweep2sleep/vib_strength
