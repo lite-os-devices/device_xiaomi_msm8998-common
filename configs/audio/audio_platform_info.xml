@@ -27,7 +27,7 @@
 <audio_platform_info>
     <acdb_ids>
         <device name="SND_DEVICE_OUT_HANDSET" acdb_id="18"/>
-        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="34"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="36"/>
         <device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="52"/>
         <device name="SND_DEVICE_OUT_HEADPHONES_44_1" acdb_id="52"/>
         <device name="SND_DEVICE_OUT_HEADPHONES_NATIVE_44_1" acdb_id="52"/>
