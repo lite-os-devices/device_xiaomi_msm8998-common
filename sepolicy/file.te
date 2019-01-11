@@ -22,3 +22,6 @@ type thermal_data_file, core_data_file_type, data_file_type, file_type;
 type thermal_decrypt_file, core_data_file_type, data_file_type, file_type;
 
 type persist_battery_file, file_type;
+
+# USB
+type sysfs_usb_device, sysfs_type, fs_type;
