@@ -28,6 +28,7 @@ import android.text.TextUtils;
 
 import org.omnirom.device.R;
 import org.omnirom.device.utils.FileUtils;
+import org.omnirom.device.dirac.DiracUtils;
 
 public class Startup extends BroadcastReceiver {
 
@@ -44,5 +45,6 @@ public class Startup extends BroadcastReceiver {
         boolean usbFastchargeStoredValue = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.USB_FASTCHARGE_KEY, false);
         FileUtils.writeValue(DeviceSettings.USB_FASTCHARGE_PATH, usbFastchargeStoredValue ? "1" : "0" );
         DisplayCalibration.restore(context);
+		DiracUtils.initialize();
     }
 }
